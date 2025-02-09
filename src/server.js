@@ -8,6 +8,9 @@ const router = require("./routes");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+//Configuração para requisição da URL
+app.use(express.urlencoded({extended: true}));
+
 app.use(router);
 
 const PORT = process.env.PORT || 3000;
