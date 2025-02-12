@@ -53,5 +53,10 @@ module.exports = {
         const list = this.getListById(listId);
         const task = list.tasks.find(task => task.id === +taskId);
         task.completed = false;
+    },
+
+    deleteList(listId){
+        const listIndex = lists.findIndex(list => list.id === +listId);
+        lists.splice(listIndex, 1);
     }
 }

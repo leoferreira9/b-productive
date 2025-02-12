@@ -13,5 +13,6 @@ router.get('/app/:id', listController.show);
 router.post('/app/:id/newTask', listController.addTask);
 router.post('/app/:listId/complete/:taskId', listController.complete);
 router.post('/app/:listId/undo/:taskId', listController.undo);
+router.post('/app/:listId/delete', listController.delete);
 
 module.exports = router;

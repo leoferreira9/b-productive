@@ -61,5 +61,12 @@ module.exports = {
         listModels.undoTask(listId, taskId);
 
         res.redirect(`/app/${listId}`);
+    },
+
+    //DELETE /app/:listId/delete
+    delete: (req, res) => {
+        const { listId } = req.params;
+        listModels.deleteList(listId);
+        res.redirect('/app');
     }
 }
