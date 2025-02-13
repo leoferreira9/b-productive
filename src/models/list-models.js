@@ -1,7 +1,4 @@
-let lists = [
-    { id: 1, title: "Tarefas de casa", tasks: [ {id: 1, title: "Lavar o Banheiro"}, {id: 2, title: "Lavar a louça"}, {id: 3, title: "Varrer o chão"} ] },
-    { id: 2, title: "Estudos", tasks: [] }
-]
+let lists = [];
 
 function generateID(){
     return Math.floor(Math.random() * 999999);

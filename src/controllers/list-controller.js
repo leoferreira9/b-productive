@@ -14,9 +14,13 @@ module.exports = {
 
     // POST /app/new-list
     save: (req, res) => {
-        const { list_title } = req.body;
+        const list = req.body.list_title?.trim();
 
-        const newList = listModels.createList(list_title);
+        if(!list){
+            return res.redirect('/app/new-list');
+        }
+
+        const newList = listModels.createList(list);
         listModels.saveList(newList);
 
         res.redirect("/app");
@@ -33,12 +37,16 @@ module.exports = {
 
     // POST /app/:id/newTask
     addTask: (req, res) => {
+        const  title  = req.body.newTaskTitle?.trim();
         const { id } = req.params;
-        const { newTaskTitle } = req.body;
+
+        if(!title){
+            return res.redirect(`/app/${id}`);
+        }
 
         const list = listModels.getListById(id);
 
-        const task = listModels.createTask(newTaskTitle);
+        const task = listModels.createTask(title);
 
         listModels.saveTask(list, task);
 
